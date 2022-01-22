@@ -15,4 +15,5 @@ for i in range(int(length_of_user_list / 2)):
     pos1 += 2
     pos2 += 2
 
+
 print(user_list)
