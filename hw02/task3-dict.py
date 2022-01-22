@@ -7,7 +7,6 @@ seasons = {
 
 month = int(input("Введите номер месяца: "))
 
-
 if month in seasons["winter"]:
     print("Зима")
 elif month in seasons["spring"]:

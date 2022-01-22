@@ -1,6 +1,7 @@
 from pprint import pprint
 
 stock = []
+
 count = int(input("Сколько товаров вы хотите внести структуру данных «Товары»?: "))
 
 for i in range(1, count + 1):

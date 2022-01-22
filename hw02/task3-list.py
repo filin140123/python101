@@ -5,7 +5,6 @@ autumn = [9, 10, 11]
 
 month = int(input("Введите номер месяца: "))
 
-
 if month in winter:
     print("Зима")
 elif month in spring:
