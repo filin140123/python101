@@ -1,7 +1,7 @@
 # Два варианта
 
-def my_func1(a, b, c):
-    return sum(sorted([a, b, c])[1:])
+def my_func1(*args):
+    return sum(sorted([*args])[-2:])
 
 
 def my_func2(a, b, c):
