@@ -1,5 +1,3 @@
-from hw05.task4 import splitted_line
-
 with open("task6-file.txt", "r", encoding="utf-8") as f:
     cut_list = ["(пр)", "(л)", "(лаб)", ":"]
     lines = f.read().splitlines()
@@ -23,5 +21,5 @@ with open("task6-file.txt", "r", encoding="utf-8") as f:
     for i, s in enumerate(splitted_lines):
         splitted_lines[i] = splitted_lines[i][:2]
 
-    splitted_lines = dict(splitted_lines)
-    print(splitted_lines)
+    result = dict(splitted_lines)
+    print(result)
