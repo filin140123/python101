@@ -1,0 +1,4 @@
+hello
+world
+lorem ipsum
+django is framework for python
