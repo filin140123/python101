@@ -1,6 +1,6 @@
 def has_special_symbol(l: list):
     for i, e in enumerate(l):
-        if not e.isdigit() and not e.isalpha():
+        if e == "!":
             return l[:i]
     return l
 
@@ -8,7 +8,9 @@ def has_special_symbol(l: list):
 result = []
 
 while True:
-    string_of_numbers = input("Введите строку чисел, разделенных пробелом: ")
+    string_of_numbers = input(
+        "Введите строку чисел, разделенных пробелом ('!' завершит программу): "
+    )
     splitted_string = string_of_numbers.split(" ")
     checked_list = has_special_symbol(splitted_string)
 
