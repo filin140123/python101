@@ -1,24 +1,19 @@
-class Error:
-    def __init__(self, *args):
-        self.my_list = []
-
-    def my_input(self):
-        while True:
-            try:
-                val = int(input('Введите значения и нажимайте Enter - '))
-                self.my_list.append(val)
-                print(f'Текущий список - {self.my_list} \n ')
-            except:
-                print('Недопустимое значение - строка и булево')
-                y_or_n = input('Попробовать еще раз? y/n: ')
-
-                if y_or_n == 'y':
-                    print(t.my_input())
-                elif y_or_n == 'n':
-                    return 'Вы вышли'
-                else:
-                    return 'Вы вышли'
+class WrongTypeException(Exception):
+    def __init__(self):
+        self.text = "Неверный тип данных. Требуется ввести число..."
 
 
-t = Error(1)
-print(t.my_input())
+mylist = []
+user_input = input("Введите число. Чтобы выйти, введите пустую строку: ")
+while user_input:
+    try:
+        if user_input.isdigit():
+            mylist.append(int(user_input))
+        else:
+            raise WrongTypeException
+    except WrongTypeException as e:
+        print(e.text)
+
+    user_input = input("Введите число. Чтобы выйти, введите пустую строку: ")
+
+print(mylist)
