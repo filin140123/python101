@@ -1,22 +1,21 @@
 class Date:
-    day: int
-    month: int
-    year: int
-
     def __init__(self, raw_date):
         self.raw_date = raw_date
 
     @classmethod
-    def to_int(cls, raw_date):  # Здесь есть ощущение, что не особо верно сделал
-        cls.day = int(raw_date.split('-')[0])
-        cls.month = int(raw_date.split('-')[1])
-        cls.year = int(raw_date.split('-')[2])
+    def to_int(cls, raw_date):
+        try:
+            day, month, year = raw_date.split('-')
+            return int(day), int(month), int(year)
+        except ValueError as e:
+            print(f"Не удалось выделить дату: {e}")
 
     @staticmethod
-    def is_date_valid():
-        day = Date.day
-        month = Date.month
-        year = Date.year
+    def is_date_valid(date_to_check):
+        try:
+            day, month, year = date_to_check
+        except TypeError as e:
+            return f"Не удалось считать дату: {e}"
         # високосный год или нет?
         if year % 4 != 0 or year % 100 == 0 and year % 400 != 0:
             february = 28
@@ -41,8 +40,8 @@ class Date:
 
 
 d = Date("11-05-2001")
-d.to_int("11-05-2001")
-print(d.is_date_valid())
-print(d.day)
-print(d.month)
-print(d.year)
+print(d.raw_date)  # 11-05-2001
+print(d.is_date_valid(d.to_int("11-05-2001")))  # True
+print(d.to_int("11-05-2001"))  # (11, 5, 2001)
+print(d.is_date_valid(d.to_int("31-02-2011")))  # False, т.к. 31 февраля не существует
+print(d.is_date_valid(d.to_int("01011999")))  # ValueError, TypeError
